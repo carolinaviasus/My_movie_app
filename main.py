@@ -28,8 +28,10 @@ app.include_router(movie_cast_router)
 Base.metadata.create_all(bind=engine)
 
 @app.get('/',tags=['home'])
-
-
 def message():
     return HTMLResponse('<h1>Hello World</h1>')
+
+@app.get('/hola',tags=['home'])
+def message():
+    return HTMLResponse('<h1>Hello Class</h1>')
 
