@@ -10,7 +10,7 @@ class DirectorService():
         result = self.db.query(DirectorModel).all()
         return result
 
-    def get_director(self, id:int):
+    def get_director_by_id(self, id:int):
         result = self.db.query(DirectorModel).filter(DirectorModel.id == id).first() 
         return result
     
@@ -42,8 +42,9 @@ class DirectorService():
         return
         
     # eliminar
-    def delete_director(self, id:int, data:Director):        
-        self.db.delete(data)
-        self.db.commit
+    def delete_director(self,id:int):
+        self.db.query(DirectorModel).filter(DirectorModel.id == id).delete()
+        self.db.commit()
+        return
 
 

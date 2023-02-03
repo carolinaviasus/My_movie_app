@@ -34,8 +34,9 @@ class MovieGenres(Base):
         self.db.commit()
         return
 
-    def delete_movies_genres(self, gen_id:int, data:Movie_genres):
-        self.db.delete(data)
-        self.db.commit
+    def delete_movies_genres(self, gen_id:int, ):
+        self.db.query(MoviesGenresModel).filter(MoviesGenresModel.gen_id == gen_id).delete()
+        self.db.commit()
+        return
   
     

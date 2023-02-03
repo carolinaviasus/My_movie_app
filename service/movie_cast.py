@@ -42,6 +42,7 @@ class MovieCastService():
         return
 
     # eliminar
-    def delete_movie_cast(self,movie_id:int, data:MovieCast):
-        self.db.delete(data)
-        self.db.commit
+    def delete_movie_cast(self,movie_id:int):
+        self.db.query(MovieCastModel).filter(MovieCastModel.movie_id == movie_id).delete()
+        self.db.commit()
+        return
